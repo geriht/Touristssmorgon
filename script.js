@@ -1,7 +1,4 @@
-/* ============================================================
-   DATA: route stops (bilingual)
-   ============================================================ */
-/* ---- Source registry: every link used in "Historical record" blocks and the chronicle ---- */
+
 const SRC = {
   belta:{ url:"https://belta.by/regions/view/v-smorgoni-otkryli-memorialnyj-kompleks-po-linii-protivostojanija-v-pervuju-mirovuju-vojnu-652131-2024/",
     en:"BELTA \u2014 opening of the memorial, 3 Aug 2024 (in Russian)", ru:"\u0411\u0415\u041b\u0422\u0410 \u2014 \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u0435 \u043c\u0435\u043c\u043e\u0440\u0438\u0430\u043b\u0430, 3 \u0430\u0432\u0433\u0443\u0441\u0442\u0430 2024" },
@@ -204,9 +201,7 @@ const FAQ = [
     ru:{ q:"Насколько безопасны замковые руины для группы?", a:"На протяжении всего осмотра руин Крево и Гольшан группу сопровождает гид, маршрут передвижения по территории согласован заранее, а зоны с ограниченным доступом обозначены и в осмотр не включаются." } }
 ];
 
-/* ============================================================
-   DATA: static UI strings (bilingual)
-   ============================================================ */
+
 const I18N = {
   en:{
     nav_about:"About the route", nav_route:"Route", nav_education:"The concept", nav_faq:"FAQ",
@@ -298,9 +293,7 @@ const I18N = {
   }
 };
 
-/* ============================================================
-   EXTRA UI STRINGS (new sections) — merged into I18N below
-   ============================================================ */
+
 const I18N_EXTRA = {
   en:{
     skip:"Skip to content", new_tab:"opens in a new tab",
@@ -451,9 +444,7 @@ FAQ.push(
   { en:{ q:I18N_EXTRA.en.faq_priv_q, a:I18N_EXTRA.en.faq_priv_a }, ru:{ q:I18N_EXTRA.ru.faq_priv_q, a:I18N_EXTRA.ru.faq_priv_a } }
 );
 
-/* ============================================================
-   CHRONICLE
-   ============================================================ */
+
 const CHRONICLE = [
   { date:{en:"1382", ru:"1382"}, src:["kreva","krevoBy"],
     en:{ t:"Krevo: the death of Grand Duke Kęstutis", p:"During the Lithuanian civil war Jogaila had his uncle Kęstutis imprisoned in Krevo Castle, and Kęstutis was found dead a week later. Sources differ: Wikipedia says historians still debate whether he was murdered or died naturally, while the official Belarus tourism site states that he was murdered." },
@@ -481,9 +472,7 @@ const CHRONICLE = [
     ru:{ t:"Мемориальный комплекс", p:"Строительство началось осенью 2012 года. Мемориал открыли для посетителей в 2014 году, в 100-летие начала Первой мировой войны, а завершённый комплекс торжественно открыли 3 августа 2024 года." } }
 ];
 
-/* ============================================================
-   FACT OR LEGEND? (a: 0 = fact, 1 = legend)
-   ============================================================ */
+
 const FACT_LEGEND = [
   { a:0, src:["smarhon"],
     en:{ s:"Napoleon left the remains of his army at Smorgon on 5 December 1812.", e:"During the retreat from Russia, Napoleon left the Grande Armée at Smorgon and travelled on towards Paris." },
@@ -511,9 +500,7 @@ const FACT_LEGEND = [
     ru:{ s:"По руинам Гольшанского замка бродит Чёрный монах.", e:"Народная легенда — история о слуге, замурованном в подземелье. Нам не известны документальные подтверждения, и именно поэтому это легенда." } }
 ];
 
-/* ============================================================
-   MINI-QUIZ
-   ============================================================ */
+
 const QUIZ = [
   { a:2, src:["smarhon"],
     en:{ q:"On what date did Napoleon leave his army at Smorgon?", o:["22 June 1812","5 October 1812","5 December 1812","14 August 1385"], e:"5 December 1812, during the retreat from Russia." },
@@ -538,9 +525,7 @@ const QUIZ = [
     ru:{ q:"Кто построил нынешний Гольшанский замок около 1610 года?", o:["Павел Стефан Сапега","Тевтонский орден","Род Радзивиллов","Род Зеновичей"], e:"Павел Стефан Сапега — на месте более старого замка князей Гольшанских." } }
 ];
 
-/* ============================================================
-   DISCUSSION + FAMILY CONTENT
-   ============================================================ */
+
 const DISCUSS = [
   { en:"In 1916 Smorgon was called a “dead city”. What changes in how we remember a place when it is kept alive by a memorial, a legend and a document?",
     ru:"В 1916 году Сморгонь назвали «мёртвым городом». Как меняется память о месте, если её поддерживают мемориал, легенда и документ?" },
@@ -586,9 +571,7 @@ const FAM_QUESTIONS = [
     { en:"Is there something you wish someone had asked you earlier?", ru:"Есть ли то, о чём вам хотелось бы, чтобы вас спросили раньше?" } ] }
 ];
 
-/* ============================================================
-   HELPERS + PROGRESS
-   ============================================================ */
+
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function srcLinks(keys){
   return keys.map(k => `<a href="${SRC[k].url}" target="_blank" rel="noopener noreferrer">${esc(SRC[k][currentLang])}<span class="visually-hidden"> (${I18N[currentLang].new_tab})</span></a>`).join('');
@@ -607,9 +590,7 @@ function markVisited(i){
   if(!progress.visited[i]){ progress.visited[i] = true; saveProgress(); renderMemoryRoute(); }
 }
 
-/* ============================================================
-   CHRONICLE + MEMORIAL PLACES
-   ============================================================ */
+
 function renderChronicle(){
   const el = document.getElementById('chronList');
   el.innerHTML = CHRONICLE.map(c => `
@@ -642,9 +623,7 @@ document.getElementById('memPlaces').addEventListener('click', e => {
   if(b){ const i = parseInt(b.dataset.open); setActive(i, true); openPoster(i); }
 });
 
-/* ============================================================
-   QUIZ ENGINE (used for "Fact or legend?" and the mini-quiz)
-   ============================================================ */
+
 function createQuiz(cfg){
   const root = document.getElementById(cfg.rootId);
   const live = document.getElementById(cfg.liveId);
@@ -733,9 +712,7 @@ function renderDiscuss(){
   document.getElementById('discussList').innerHTML = DISCUSS.map(d => `<li>${esc(d[currentLang])}</li>`).join('');
 }
 
-/* ============================================================
-   MEMORY ROUTE
-   ============================================================ */
+
 function scoreText(r){ return r ? `${r.s} / ${r.t}` : I18N[currentLang].mr_none; }
 function renderMemoryRoute(){
   const I = I18N[currentLang];
@@ -766,7 +743,7 @@ document.getElementById('mrReset').addEventListener('click', () => {
   flQuiz.render(); mcQuiz.render(); renderMemoryRoute();
 });
 
-/* ---- printing: copy content into #printRoot and print only that ---- */
+
 function printContent(html){
   const pr = document.getElementById('printRoot');
   pr.innerHTML = html;
@@ -793,9 +770,7 @@ document.getElementById('mrPrint').addEventListener('click', () => {
     <p class="print-text">${esc(progress.reflect || '').replace(/\n/g, '<br>') || '&nbsp;'}</p>`);
 });
 
-/* ============================================================
-   GENERATIONS: tips, questions, family card
-   ============================================================ */
+
 function renderFamily(){
   document.getElementById('famTips').innerHTML = FAM_TIPS.map(t =>
     `<li><svg aria-hidden="true"><use href="#ic-shield"/></svg><span>${esc(t[currentLang])}</span></li>`).join('');
@@ -858,9 +833,7 @@ document.getElementById('famPrint').addEventListener('click', () => {
   printContent(`<p class="print-meta">${I.mr_print_site} · ${I.f_print_title}</p><div class="fam-card print-card">${familyCardHtml()}</div>`);
 });
 
-/* ============================================================
-   POSTER EXTRAS (historical record + sources) and master render
-   ============================================================ */
+
 function renderPosterExtras(s, d){
   const I = I18N[currentLang];
   const h = s.hist ? s.hist[currentLang] : null;
@@ -898,9 +871,7 @@ let currentLang = (function(){
   try{ return localStorage.getItem('smorgon_lang') || 'en'; }catch(e){ return 'en'; }
 })();
 
-/* ============================================================
-   RENDER: timeline
-   ============================================================ */
+
 const timelineEl = document.getElementById('timeline');
 function renderTimeline(){
   timelineEl.innerHTML = '';
@@ -935,9 +906,7 @@ function renderTimeline(){
   timelineEl.appendChild(finishItem);
 }
 
-/* ============================================================
-   MAP
-   ============================================================ */
+
 let map, markers = [];
 function initMap(){
   if(typeof L === 'undefined'){
@@ -946,9 +915,6 @@ function initMap(){
     return;
   }
   map = L.map('route-map', { scrollWheelZoom:false }).setView([54.38, 26.25], 10);
-  // Tiles: Esri World Street Map (no API key; works from a local file and from any host).
-  // CARTO now requires a key and public OSM tiles return 403 to pages without a Referer (file://),
-  // so OSM is only used as a fallback when the site is served over http(s).
   const tileMain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
     attribution: 'Tiles &copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer">Esri</a> \u2014 Esri, HERE, Garmin, USGS, &copy; OpenStreetMap contributors, and the GIS User Community'
@@ -1002,9 +968,7 @@ document.querySelectorAll('.timeline-item[data-index]').forEach(el => {
   el.addEventListener('click', () => setActive(parseInt(el.dataset.index), true));
 });
 
-/* ============================================================
-   POSTER MODAL
-   ============================================================ */
+
 const overlay = document.getElementById('posterOverlay');
 const posterIcon = document.getElementById('posterIcon');
 const posterImg = document.getElementById('posterImg');
@@ -1088,9 +1052,7 @@ document.addEventListener('keydown', (e) => {
 posterPrev.addEventListener('click', () => { if(posterIndex>0){ posterIndex--; renderPoster(); } });
 posterNext.addEventListener('click', () => { if(posterIndex<STOPS.length-1){ posterIndex++; renderPoster(); } });
 
-/* ============================================================
-   FAQ
-   ============================================================ */
+
 const faqList = document.getElementById('faqList');
 function renderFaq(){
   faqList.innerHTML = '';
@@ -1103,9 +1065,7 @@ function renderFaq(){
   });
 }
 
-/* ============================================================
-   I18N APPLY
-   ============================================================ */
+
 const heroTitleParts = {
   en:{ pre:"Mysteries of the ", em:"Smorgon", post:" Land: from war chronicles to castle legends" },
   ru:{ pre:"Тайны ", em:"Сморгонской", post:" земли: от военных хроник до замковых легенд" }
@@ -1138,9 +1098,7 @@ document.getElementById('langToggle').addEventListener('click', () => {
   applyI18n();
 });
 
-/* ============================================================
-   NAV TOGGLE
-   ============================================================ */
+
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
 const navToggleIcon = document.getElementById('navToggleIcon');
@@ -1155,8 +1113,6 @@ mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navToggleIcon.innerHTML = '<use href="#ic-menu"/>';
 }));
 
-/* ============================================================
-   INIT
-   ============================================================ */
+
 applyI18n();
 if (window.L) { initMap(); } else { window.addEventListener('load', initMap); }
