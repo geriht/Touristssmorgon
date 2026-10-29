@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Mysteries of the Smorgon Land — from war chronicles to castle legends</title>
+<meta id="pageDesc" name="description" content="A one-day bus route through Smorgon district: war memorials, churches, castle ruins and the legends of Golshany. For school excursions, families and tour operators.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<svg class="icon-defs" aria-hidden="true">
+<defs>
+<symbol id="ic-menu" viewBox="0 0 24 24"><path fill="none" d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="ic-close" viewBox="0 0 24 24"><path fill="none" d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="ic-globe" viewBox="0 0 24 24"><circle fill="none" cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z" stroke="currentColor" stroke-width="1.3"/></symbol>
+<symbol id="ic-compass" viewBox="0 0 24 24"><circle fill="none" cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path fill="none" d="M15.5 8.5l-2 5-5 2 2-5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+<symbol id="ic-arrow" viewBox="0 0 24 24"><path fill="none" d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ic-arrow-left" viewBox="0 0 24 24"><path fill="none" d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ic-plus" viewBox="0 0 24 24"><path fill="none" d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+<symbol id="ic-seal" viewBox="0 0 48 48"><circle fill="none" cx="24" cy="24" r="19" stroke="currentColor" stroke-width="1.4"/><circle fill="none" cx="24" cy="24" r="13.5" stroke="currentColor" stroke-width="1"/><path fill="none" d="M24 12v4M24 32v4M12 24h4M32 24h4M16 16l3 3M32 32l-3-3M32 16l-3 3M16 32l3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+
+<symbol id="ic-school" viewBox="0 0 24 24"><path fill="none" d="M12 4L2 9l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path fill="none" d="M6 11.5v5c0 1.2 2.7 3 6 3s6-1.8 6-3v-5" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M22 9v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+<symbol id="ic-family" viewBox="0 0 24 24"><circle fill="none" cx="8" cy="7" r="2.6" stroke="currentColor" stroke-width="1.3"/><circle fill="none" cx="16" cy="7" r="2.6" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M3 20c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5M11 20c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+<symbol id="ic-guide" viewBox="0 0 24 24"><path fill="none" d="M4 20V6a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path fill="none" d="M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+
+<symbol id="ic-memorial" viewBox="0 0 48 48"><path fill="none" d="M24 6l6 12H18z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><rect fill="none" x="17" y="18" width="14" height="20" stroke="currentColor" stroke-width="1.4"/><rect fill="none" x="12" y="38" width="24" height="4" stroke="currentColor" stroke-width="1.4"/><path fill="none" d="M24 22v10M20 27h8" stroke="currentColor" stroke-width="1.2"/></symbol>
+<symbol id="ic-church" viewBox="0 0 48 48"><path fill="none" d="M24 6v6M20 10h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path fill="none" d="M24 12l9 8v4H15v-4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><rect fill="none" x="12" y="24" width="24" height="14" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M21 38v-9a3 3 0 016 0v9" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M16 30h3M29 30h3" stroke="currentColor" stroke-width="1.1"/></symbol>
+<symbol id="ic-cemetery" viewBox="0 0 48 48"><path fill="none" d="M24 8v14M18 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path fill="none" d="M17 38c0-8 3-13 7-13s7 5 7 13" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M10 38h28" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path fill="none" d="M12 38v-4M16 38v-6M32 38v-6M36 38v-4" stroke="currentColor" stroke-width="1"/></symbol>
+<symbol id="ic-ruin" viewBox="0 0 48 48"><path fill="none" d="M10 40V16l4-4v28M10 20h4" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M20 40V10l5-4 5 4v30" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M20 16h10M20 24h10" stroke="currentColor" stroke-width="1"/><path fill="none" d="M34 40V20l4-3v23" stroke="currentColor" stroke-width="1.3"/><path fill="none" d="M8 40h32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+<symbol id="ic-baroque" viewBox="0 0 48 48"><path fill="none" d="M13 40V18l3-3 3 3v22M13 15l3-4 3 4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path fill="none" d="M29 40V14l3-4 3 4v26M29 10l3-4 3 4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path fill="none" d="M19 40V26h10v14" stroke="currentColor" stroke-width="1.2"/><path fill="none" d="M9 40h30" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+<symbol id="ic-gingerbread" viewBox="0 0 48 48"><path fill="none" d="M24 10c-3 0-5 2.6-5 5.4C15 15.4 12 19 12 23c0 8 6 15 12 15s12-7 12-15c0-4-3-7.6-7-7.6 0-2.8-2-5.4-5-5.4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="19" cy="24" r="1.2" fill="currentColor" stroke="none"/><circle cx="24" cy="28" r="1.2" fill="currentColor" stroke="none"/><circle cx="29" cy="24" r="1.2" fill="currentColor" stroke="none"/><circle cx="24" cy="20" r="1.2" fill="currentColor" stroke="none"/></symbol>
+
+<symbol id="ic-shield" viewBox="0 0 24 24"><path fill="none" d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path fill="none" d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ic-book" viewBox="0 0 24 24"><path fill="none" d="M12 6c-2-1.3-5-1.6-8-1v13c3-.6 6-.3 8 1 2-1.3 5-1.6 8-1V5c-3-.6-6-.3-8 1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path fill="none" d="M12 6v13" stroke="currentColor" stroke-width="1.3"/></symbol>
+<symbol id="ic-mask" viewBox="0 0 24 24"><path fill="none" d="M4 9c0-3 3.5-5 8-5s8 2 8 5-3.5 9-8 9-8-6-8-9z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="9.5" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="10" r="1" fill="currentColor" stroke="none"/><path fill="none" d="M9 14c1.5 1 4.5 1 6 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+</defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="#hero" class="brand">
+      <svg class="seal"><use href="#ic-seal"/></svg>
+      <span>
+        <span data-i18n="brand_name">Mysteries of the Smorgon Land</span>
+        <small data-i18n="brand_tag">a day-trip route</small>
+      </span>
+    </a>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+        <svg><use href="#ic-globe"/></svg><span id="langToggleLabel">RU</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+        <svg id="navToggleIcon"><use href="#ic-menu"/></svg>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="#about" data-i18n="nav_about">About the route</a>
+        <a href="#route" data-i18n="nav_route">Route</a>
+        <a href="#memory" data-i18n="nav_memory">Memory</a>
+        <a href="#learn" data-i18n="nav_learn">Learn</a>
+        <a href="#generations" data-i18n="nav_family">My family</a>
+        <a href="#education" data-i18n="nav_education">The concept</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="hero_eyebrow">One-day bus route · Smorgon district</div>
+      <h1 id="heroTitle">Mysteries of the <em>Smorgon</em> Land: from war chronicles to castle legends</h1>
+      <p class="lede" data-i18n="hero_lede">Six stops, eight and a half hours, and almost six centuries of history — from First World War trenches to the dungeons of Krevo Castle and the ghosts of Golshany. A ready-made tourism product for school excursions, family trips, and tour operators.</p>
+      <div class="hero-ctas">
+        <a href="#route" class="btn btn-primary"><svg><use href="#ic-compass"/></svg><span data-i18n="hero_cta_primary">Explore the route</span></a>
+        <a href="#education" class="btn btn-outline"><span data-i18n="hero_cta_secondary">About the concept</span><svg><use href="#ic-arrow"/></svg></a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>85–95</strong><span data-i18n="stat_km">kilometres</span></div>
+        <div><strong>6</strong><span data-i18n="stat_stops">stops</span></div>
+        <div><strong>9:00–17:45</strong><span data-i18n="stat_time">on the road</span></div>
+        <div><strong>8–11</strong><span data-i18n="stat_grades">school grades</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
+        <path class="route-path" d="M60 40 C 160 60, 40 130, 130 160 S 320 200, 250 250 S 60 300, 140 350 S 340 380, 300 430" />
+        <g class="route-node" transform="translate(60,40)"><circle class="ring" r="17"/><circle class="dot" r="8"/><use href="#ic-memorial" class="stop-icon" x="-38" y="-50" width="20" height="20"/><text x="18" y="4">09:00</text></g>
+        <g class="route-node" transform="translate(130,160)"><circle class="ring" r="17"/><circle class="dot" r="8"/><use href="#ic-church" class="stop-icon" x="20" y="-14" width="20" height="20"/><text x="-42" y="4">10:15</text></g>
+        <g class="route-node" transform="translate(250,250)"><circle class="ring" r="17"/><circle class="dot" r="8"/><use href="#ic-cemetery" class="stop-icon" x="-40" y="-42" width="20" height="20"/><text x="20" y="4">11:00</text></g>
+        <g class="route-node" transform="translate(140,350)"><circle class="ring" r="17"/><circle class="dot" r="8"/><use href="#ic-ruin" class="stop-icon" x="22" y="-10" width="20" height="20"/><text x="-42" y="4">11:40</text></g>
+        <g class="route-node" transform="translate(220,300)" opacity="0"></g>
+        <g class="route-node" transform="translate(300,430)"><circle class="ring" r="17"/><circle class="dot" r="8"/><use href="#ic-gingerbread" class="stop-icon" x="22" y="-10" width="20" height="20"/><text x="-42" y="4">14:00</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section-pad" id="about">
+  <div class="container about-layout">
+    <div class="about-copy">
+      <div class="eyebrow" data-i18n="about_eyebrow">About the route</div>
+      <h2 data-i18n="about_h2">Mystery without horror — history you can actually enjoy</h2>
+      <p data-i18n="about_p1">The route is built around mystical tourism — the lightest shade of dark tourism: castle legends, not sites of tragedy. We don't lean into fear or focus on death — we show how military history, architecture and Belarusian folklore intertwine across a single district.</p>
+      <p data-i18n="about_p2">The tour starts and ends in Smorgon. The bus runs a loop through Krevo, Boruny and Golshany and returns to town by evening. The format suits an organised school group with accompanying teachers just as well as a family travelling independently.</p>
+      <ul class="audience-list">
+        <li><svg><use href="#ic-school"/></svg><div><strong data-i18n="audience1_title">Schools & teachers.</strong> <span data-i18n="audience1_desc">A ready-made programme for form periods, history and local-studies lessons — grades 8–11.</span></div></li>
+        <li><svg><use href="#ic-family"/></svg><div><strong data-i18n="audience2_title">Families.</strong> <span data-i18n="audience2_desc">A weekend format without complicated logistics: one bus, one day, a clear programme.</span></div></li>
+        <li><svg><use href="#ic-guide"/></svg><div><strong data-i18n="audience3_title">Tour operators.</strong> <span data-i18n="audience3_desc">A packaged product with timing, points of interest and a workshop — ready to add to a catalogue.</span></div></li>
+      </ul>
+      <div class="tone-note" data-i18n="tone_note">Guiding principle of the route: we present ghosts and legends as part of cultural heritage — the same way we'd present a fresco or a coat of arms — not as horror.</div>
+    </div>
+    <div>
+      <div class="stat-card-grid">
+        <div class="stat-card"><strong data-i18n="sc1_val">85–95 km</strong><span data-i18n="sc1">total distance</span></div>
+        <div class="stat-card"><strong>6</strong><span data-i18n="sc2">themed stops</span></div>
+        <div class="stat-card"><strong data-i18n="sc3_val">≈8h 45m</strong><span data-i18n="sc3">9:00 to 17:45</span></div>
+        <div class="stat-card"><strong data-i18n="sc4_val">Smorgon</strong><span data-i18n="sc4">departure &amp; return</span></div>
+        <div class="stat-card"><strong>1</strong><span data-i18n="sc5">gingerbread workshop</span></div>
+        <div class="stat-card"><strong data-i18n="sc6_val">14th–20th c.</strong><span data-i18n="sc6">eras covered</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROUTE / INTERACTIVE MAP ================= -->
+<section class="section-pad" id="route" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="route_eyebrow">Interactive route map</div>
+      <h2 data-i18n="route_h2">Click a stop to open its legend</h2>
+      <p class="muted" data-i18n="route_p">Tap a marker on the map — or a stop in the list — to open an illustrated card with its history and legend. The route line is schematic and shows the order of stops, not the exact road.</p>
+    </div>
+  </div>
+  <div class="container" style="padding:0;">
+    <div class="route-layout">
+      <div id="route-map" role="img" aria-label="Map of the route with six stops from Smorgon to Golshany"></div>
+      <div class="timeline" id="timeline"><!-- filled by JS --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POSTER MODAL ================= -->
+<div class="poster-overlay" id="posterOverlay">
+  <div class="poster-card" role="dialog" aria-modal="true" aria-labelledby="posterTitle">
+    <button class="poster-close" id="posterClose" type="button" aria-label="Close"><svg><use href="#ic-close"/></svg></button>
+    <div class="poster-visual">
+      <img id="posterImg" alt="" loading="lazy">
+      <svg id="posterIcon"><use href="#ic-ruin"/></svg>
+      <a id="posterCredit" class="poster-photo-credit" target="_blank" rel="noopener noreferrer">Photo: Wikimedia Commons</a>
+    </div>
+    <div class="poster-body">
+      <div class="poster-eyebrow" id="posterEyebrow">Stop 1 · 09:00</div>
+      <h3 id="posterTitle">Title</h3>
+      <div class="poster-place" id="posterPlace">Place</div>
+      <div id="posterHist"></div>
+      <h4 class="poster-sub" id="posterStoryH">The story</h4>
+      <p class="poster-text" id="posterText">Text</p>
+      <div id="posterSources"></div>
+      <div class="poster-nav">
+        <button class="poster-nav-btn" id="posterPrev" type="button"><svg><use href="#ic-arrow-left"/></svg><span data-i18n="poster_prev">Previous</span></button>
+        <span class="poster-dots" id="posterDots">1 / 6</span>
+        <button class="poster-nav-btn" id="posterNext" type="button"><span data-i18n="poster_next">Next</span><svg><use href="#ic-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HISTORICAL MEMORY ================= -->
+<section class="section-pad" id="memory" style="background:var(--parchment-deep);">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="memory_eyebrow">Historical memory</div>
+      <h2 data-i18n="memory_h2">The Smorgon land in military history</h2>
+      <p class="muted" data-i18n="memory_p"></p>
+    </div>
+    <div class="policy-note">
+      <svg aria-hidden="true"><use href="#ic-shield"/></svg>
+      <div><strong data-i18n="memory_policy_h">How we treat sources and eyewitness accounts</strong><p data-i18n="memory_policy"></p></div>
+    </div>
+    <h3 class="sub-h" data-i18n="memory_chron_h">Chronicle</h3>
+    <ol class="chron" id="chronList"></ol>
+    <div class="memory-extra">
+      <p class="saying"><strong data-i18n="memory_saying_h">A soldiers' saying</strong><span data-i18n="memory_saying"></span></p>
+      <p class="gap-note" data-i18n="memory_gap"></p>
+    </div>
+    <h3 class="sub-h" data-i18n="memory_places_h">Memorial places on the route</h3>
+    <div class="memplaces" id="memPlaces"></div>
+  </div>
+</section>
+
+<!-- ================= LEARN: FACT OR LEGEND + QUIZ ================= -->
+<section class="section-pad" id="learn">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" data-i18n="learn_eyebrow">Learn</div>
+      <h2 data-i18n="learn_h2">Test what you know</h2>
+      <p class="muted" data-i18n="learn_p"></p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity">
+        <h3 data-i18n="fl_h">Fact or legend?</h3>
+        <p data-i18n="fl_p"></p>
+        <div id="flRoot"></div>
+        <div class="visually-hidden" id="flLive" aria-live="polite"></div>
+      </div>
+      <div class="activity">
+        <h3 data-i18n="quiz_h">Mini-quiz</h3>
+        <p data-i18n="quiz_p"></p>
+        <div id="quizRoot"></div>
+        <div class="visually-hidden" id="quizLive" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="discuss">
+      <h3 class="sub-h" data-i18n="discuss_h">Questions for discussion</h3>
+      <p class="muted" data-i18n="discuss_p"></p>
+      <ol id="discussList"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEMORY ROUTE ================= -->
+<section class="section-pad on-dark" id="memoryroute">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="mr_eyebrow">Final step</div>
+      <h2 data-i18n="mr_h">Your memory route</h2>
+      <p data-i18n="mr_p"></p>
+    </div>
+    <div class="mr-grid">
+      <div class="stamps" id="stamps"></div>
+      <div class="mr-card">
+        <div id="mrStats"></div>
+        <label for="mrReflect" data-i18n="mr_reflect">One thing I will remember, and one question I still have</label>
+        <textarea id="mrReflect" data-i18n-ph="mr_reflect_ph"></textarea>
+        <div class="mr-actions">
+          <button type="button" class="btn btn-primary" id="mrPrint" data-i18n="mr_print">Print / save as PDF</button>
+          <button type="button" class="btn btn-outline" id="mrReset" data-i18n="mr_reset">Reset progress</button>
+        </div>
+        <a class="link-btn light" href="#generations" data-i18n="mr_next">Next step: ask someone in your family →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONNECTION OF GENERATIONS ================= -->
+<section class="section-pad" id="generations">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="fam_eyebrow">Connection of generations</div>
+      <h2 data-i18n="fam_h2">My family's history</h2>
+      <p class="muted" data-i18n="fam_p"></p>
+    </div>
+    <div class="fam-layout">
+      <div>
+        <h3 class="sub-h" data-i18n="fam_tips_h">How to collect family stories</h3>
+        <ul class="tips" id="famTips"></ul>
+      </div>
+      <div>
+        <h3 class="sub-h" data-i18n="fam_q_h">Questions for a conversation with older relatives</h3>
+        <div class="qgroups" id="famQuestions"></div>
+      </div>
+    </div>
+    <div class="fam-make">
+      <h3 class="sub-h" data-i18n="fam_make_h">Create a family story card</h3>
+      <p class="muted" data-i18n="fam_make_p"></p>
+      <div class="fam-make-grid">
+        <form id="famForm" novalidate>
+          <div class="field"><label for="f_title" data-i18n="f_title">Title of the story</label><input type="text" id="f_title" autocomplete="off"></div>
+          <div class="field"><label for="f_who" data-i18n="f_who">Whose story is it?</label><input type="text" id="f_who" autocomplete="off"></div>
+          <div class="field"><label for="f_when" data-i18n="f_when">Place and time</label><input type="text" id="f_when" autocomplete="off"></div>
+          <div class="field"><label for="f_story" data-i18n="f_story">The story</label><textarea id="f_story" rows="5"></textarea></div>
+          <div class="field"><label for="f_source" data-i18n="f_source">How do you know this?</label><input type="text" id="f_source" autocomplete="off"></div>
+          <div class="field"><label for="f_meaning" data-i18n="f_meaning">Why it matters to me</label><textarea id="f_meaning" rows="3"></textarea></div>
+          <div class="field"><label for="f_photo" data-i18n="f_photo">Add a photo</label><input type="file" id="f_photo" accept="image/*"></div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" id="famPrint" disabled data-i18n="f_print">Print / save as PDF</button>
+            <button type="button" class="btn btn-outline-dark" id="famClear" data-i18n="f_clear">Clear</button>
+          </div>
+          <p class="fam-note" data-i18n="f_privacy"></p>
+        </form>
+        <div>
+          <p class="fam-preview-h" data-i18n="f_preview_h">Preview</p>
+          <div class="fam-card" id="famCard" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section class="section-pad on-dark" id="education">
+  <div class="container edu-layout">
+    <div class="edu-copy">
+      <div class="eyebrow" data-i18n="education_eyebrow">The concept</div>
+      <h2 data-i18n="education_h2">What is mystical tourism?</h2>
+      <p data-i18n="education_p1">Dark tourism means travelling to places connected with tragic or historically significant events. Within that broad field, mystical tourism occupies its own niche: it turns not to death but to legend — the ghosts and curses that have lived around castles and churches for centuries.</p>
+      <p data-i18n="education_p2">Researcher Philip Stone describes dark tourism as a spectrum of "shades" — from the darkest sites of genuine tragedy to the lightest, heritage-and-entertainment-oriented destinations. Mystical tourism sits toward that lighter end: a long historical distance, an emphasis on heritage, and minimal emotional pressure on the visitor.</p>
+      <div class="spectrum">
+        <div class="edu-mark"><div class="flag" data-i18n="spectrum_flag">the route sits here</div></div>
+        <div class="spectrum-bar"></div>
+        <div class="spectrum-labels">
+          <span data-i18n="spectrum_dark_label">dark pole<br><strong data-i18n="spectrum_dark_sub">tragedy, document</strong></span>
+          <span style="text-align:right;" data-i18n="spectrum_light_label">light pole<br><strong data-i18n="spectrum_light_sub">heritage, legend</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <h3 style="font-size:18px;" data-i18n="edu_card_h3">Why this works for schools</h3>
+      <ul>
+        <li><svg><use href="#ic-book"/></svg><div data-i18n="edu_li1">Legends become a reason to study architecture, heraldry and local history — a topic for discussion, not a source of anxiety.</div></li>
+        <li><svg><use href="#ic-shield"/></svg><div data-i18n="edu_li2">Wartime and memorial episodes are framed as the history of memory, without graphic detail.</div></li>
+        <li><svg><use href="#ic-mask"/></svg><div data-i18n="edu_li3">The "poster" format teaches visitors to tell documented fact from folk legend — that's media literacy in itself.</div></li>
+      </ul>
+      <div class="survey" data-i18n="survey_note">In a survey of pupils at our school, mystical tourism came out as the most popular direction of dark tourism — ahead of military, cemetery and other formats.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-pad" id="faq" style="background:var(--parchment-deep);">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" data-i18n="faq_eyebrow">Frequently asked questions</div>
+      <h2 data-i18n="faq_h2">FAQ</h2>
+    </div>
+    <div class="faq-list" id="faqList"><!-- filled by JS --></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="brand" style="margin-bottom:14px;">
+          <svg class="seal"><use href="#ic-seal"/></svg>
+          <span data-i18n="brand_name">Mysteries of the Smorgon Land</span>
+        </a>
+        <p data-i18n="footer_tagline">An educational tourism route through Smorgon district: military history, architecture, and the legends of Belarusian castles.</p>
+      </div>
+      <div>
+        <h5 data-i18n="footer_sections_h5">Sections</h5>
+        <ul>
+          <li><a href="#about" data-i18n="nav_about">About the route</a></li>
+          <li><a href="#route" data-i18n="nav_route">Route</a></li>
+          <li><a href="#memory" data-i18n="nav_memory">Memory</a></li>
+          <li><a href="#learn" data-i18n="nav_learn">Learn</a></li>
+          <li><a href="#generations" data-i18n="nav_family">My family</a></li>
+          <li><a href="#education" data-i18n="nav_education">The concept</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_bottom">© 2026 Mysteries of the Smorgon Land. An educational tourism project.</span>
+      <span data-i18n="footer_source_note">Route developed from a study of mystical tourism in Smorgon district.</span>
+    </div>
+  </div>
+</footer>
+
+<div id="printRoot" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
